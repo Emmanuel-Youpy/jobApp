@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './screens/HomeScreen';
+import HomeScreen from './screens/HomeStack/HomeScreen';
 import JobDetails from './screens/JobDetails';
 import MyTabs from './navigation/MyTabs';
 
@@ -14,10 +14,11 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-    <Stack.Navigator>
-        <Stack.Screen name="MyTabs" component={MyTabs} />
-        <Stack.Screen name="JobDetails" component={JobDetails} />
-      </Stack.Navigator>
+    {/* <Stack.Navigator> */}
+        {/* <Stack.Screen name="MyTabs" component={MyTabs} /> */}
+        {/* <Stack.Screen name="JobDetails" component={JobDetails} /> */}
+      {/* </Stack.Navigator> */}
+      <MyTabs/>
       <StatusBar style="auto" />
     </NavigationContainer>
   );
