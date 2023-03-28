@@ -4,9 +4,10 @@ import HomeScreen from '../screens/HomeStack/HomeScreen'
 import JobDetails from '../screens/JobDetails'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Home from '../screens/HomeStack/Home';
+import Home from '../screens/HomeStack/HomeStack';
 import SettingsScreen from '../screens/SettingStack/SettingsScreen';
 import SafeAreaViewAndriodIos from '../components/SafeAreaViewAndriodIos';
+import HomeStack from '../screens/HomeStack/HomeStack';
 
 
 
@@ -36,7 +37,7 @@ const MyTabs = () => {
         tabBarInactiveTintColor: 'gray',
       })}>
     {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
-    <Tab.Screen name="Home" component={Home}  options={{headerShown:false}}/>
+    <Tab.Screen name="Home" component={HomeStack}  options={{headerShown:false}}/>
     
     {/* <Tab.Screen name="JobDetails" component={JobDetails} /> */}
     <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown:false}} />

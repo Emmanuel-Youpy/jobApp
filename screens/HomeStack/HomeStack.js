@@ -10,7 +10,7 @@ import { icons, images } from '../../constants';
 const Stack = createNativeStackNavigator();
 
 
-const Home = () => {
+const HomeStack = () => {
   return (
     <Stack.Navigator>
     <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerTitle:"", headerLeft: ()=>{return<ScreenHeaderBtn iconUrl={icons.menu} dimension="60%"/>}, headerRight: ()=>{return<ScreenHeaderBtn iconUrl={images.profile} dimension="100%"/>}}}   />
@@ -19,4 +19,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomeStack
