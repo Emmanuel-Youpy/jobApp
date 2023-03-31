@@ -6,6 +6,7 @@ import HomeScreen from './HomeScreen'
 import JobDetails from '../JobDetails'
 import ScreenHeaderBtn from '../../components/common/header/ScreenHeaderBtn';
 import { icons, images } from '../../constants';
+import Search from './Search';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ const HomeStack = () => {
     <Stack.Navigator>
     <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerTitle:"", headerLeft: ()=>{return<ScreenHeaderBtn iconUrl={icons.menu} dimension="60%"/>}, headerRight: ()=>{return<ScreenHeaderBtn iconUrl={images.profile} dimension="100%"/>}}}   />
     <Stack.Screen name="JobDetails" component={JobDetails} options={{headerShown:false}}/>
+    <Stack.Screen name="Search" component={Search} options={{headerShown:false}}/>
   </Stack.Navigator>
   )
 }
