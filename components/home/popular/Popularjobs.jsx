@@ -7,17 +7,20 @@ import {
   FlatList,
 } from "react-native";
 import { COLORS, SIZES } from "../../../constants";
-import PopularJobCard from "./PopularJobCard";
+// import PopularJobCard from "./PopularJobCard";
+import PopularJobCard from "../../common/cards/popular/PopularJobCard"
 import styles from "./popularjobs.style";
 import useFetch from  '../../../hook/useFetch'
 
 const Popularjobs = () => {
-  <useFetch/>
-  const isLoading = false;
-  const error = false;
+  const {isLoading, error, data} = useFetch('search', {
+    query:'React developer', num_pages:1,
+  })
+  // console.log(data)
   return (
+  
     <View style={styles.container}>
-      <View style={styles.header}>
+            <View style={styles.header}>
         <Text style={styles.headerTitle}>Popular jobs</Text>
         <TouchableOpacity>
           <Text style={styles.headerBtn}>Show All</Text>
