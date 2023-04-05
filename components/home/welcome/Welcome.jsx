@@ -11,7 +11,7 @@ const Welcome = () => {
   const navigation = useNavigation();
   const [activeJobType, setActiveJobType] = useState('Full-time')
   return (
-    <View >
+    <View>
       <View style={styles.container}>
         <Text style={styles.userName}>Welcome</Text>
         <Text style={styles.welcomeMessage}>Find your perfect job</Text>
