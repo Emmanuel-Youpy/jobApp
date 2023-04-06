@@ -1,17 +1,31 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, ScrollView } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { Button } from 'react-native'
 import Welcome from '../../components/home/welcome/Welcome'
 import Popularjobs from '../../components/home/popular/Popularjobs'
 import Nearbyjobs from '../../components/home/nearby/Nearbyjobs'
+import { COLORS } from '../../constants'
+import { ActivityIndicator } from 'react-native'
 
 const HomeScreen = ({navigation }) => {
+
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsReady(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
+    <ScrollView showsVerticalScrollIndicator={false}>
     <View style={{padding:10}}>
     <Welcome/>
       <Popularjobs/>
-      <Nearbyjobs/>
+      {isReady ? <Nearbyjobs/> :<Text>...</Text>}
     </View>
+    </ScrollView>
   )
 }
 

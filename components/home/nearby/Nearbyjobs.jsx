@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -13,7 +13,10 @@ import useFetch from  '../../../hook/useFetch'
 import { useNavigation } from '@react-navigation/native';
 
 
+
 const Nearbyjobs = () => {
+  // useEffect(() => { }, [Nearbyjobs])
+  
   const navigation = useNavigation();
 
   const {isLoading, error, data} = useFetch('search', {
@@ -29,7 +32,7 @@ const Nearbyjobs = () => {
           <Text style={styles.headerBtn}>Show All</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.cardContainer}>
+      <View style={styles.container}>
         {isLoading ? (
           <ActivityIndicator size="large" colors={COLORS.primary} />
         )
@@ -39,7 +42,7 @@ const Nearbyjobs = () => {
         : (
          data?.map((job) =>(
           <NearbyJobCard job={job} key={`nearby-job-${job?.job_id}`} handleNavigate={()=>{
-            navigation.navigate('Search')
+            navigation.navigate('JobDetails', {itemId:job?.job_id})
           }} />
           
          ))

@@ -7,7 +7,6 @@ import {
   FlatList,
 } from "react-native";
 import { COLORS, SIZES } from "../../../constants";
-// import PopularJobCard from "./PopularJobCard";
 import PopularJobCard from "../../common/cards/popular/PopularJobCard"
 import styles from "./popularjobs.style";
 import useFetch from  '../../../hook/useFetch'
@@ -17,6 +16,7 @@ import useFetch from  '../../../hook/useFetch'
 
 
 const Popularjobs = () => {
+  useEffect(() => { Popularjobs}, [])
   
   const {isLoading, error, data} = useFetch('search', {
     query:'React developer', num_pages:1,
@@ -37,13 +37,13 @@ const Popularjobs = () => {
           <Text style={styles.headerBtn}>Show All</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.cardContainer}>
+      <View style={styles.container}>
         {isLoading ? (
           <ActivityIndicator size="large" colors={COLORS.primary} />
         ) 
-        // : error ? (
-        //   <Text>Something went wrong oo</Text>
-        // )
+        : error ? (
+          <Text>Something went wrong oo</Text>
+        )
          : (
           <FlatList
             data={data}
