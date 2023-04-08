@@ -1,5 +1,4 @@
 import { View, Text, ScrollView, RefreshControl } from 'react-native'
-import React, { useState } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './HomeScreen'
