@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import { FlatList } from "react-native";
-import { View, Text, TextInput, Touchable, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Touchable,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import { icons, SIZES } from "../../../constants";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 import styles from "./welcome.style";
 
-const jobTypes=["Full-Time", "Part-time", "Contractor"]
+const jobTypes = ["Full-Time", "Part-time", "Contractor"];
 
-const Welcome = () => {
+const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   const navigation = useNavigation();
-  const [activeJobType, setActiveJobType] = useState('Full-time')
+  const [activeJobType, setActiveJobType] = useState("Full-time");
   return (
     <View>
       <View style={styles.container}>
@@ -18,25 +25,39 @@ const Welcome = () => {
       </View>
       <View style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
-          <TextInput style={styles.searchInput} value="" onChange={()=>{}} placeholder="Search Jobs"/>
+          <TextInput
+            style={styles.searchInput}
+            value={searchTerm}
+            onChange={(text) => setSearchTerm(text)}
+            placeholder="Search Jobs"
+          />
         </View>
-        <TouchableOpacity style={styles.searchBtn} onPress={()=>{}}>
-          <Image source={icons.search} resizeMode="contain" style={styles.searchBtnImage}/>
+        <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
+          <Image
+            source={icons.search}
+            resizeMode="contain"
+            style={styles.searchBtnImage}
+          />
         </TouchableOpacity>
       </View>
       <View style={styles.tabsContainer}>
-        <FlatList data={jobTypes} renderItem={({item})=>(
-          <TouchableOpacity style={styles.tab(activeJobType, item)} onPress={()=>{
-            navigation.navigate('Search', {item})
-          }}>
-            
-            <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
-          </TouchableOpacity>
-        )}
-        keyExtractor={item => item}
-        contentContainerStyle={{columnGap: SIZES.small}}
-        horizontal/>
-
+        <FlatList
+          data={jobTypes}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.tab(activeJobType, item)}
+              onPress={() => {
+                setActiveJobType(item)
+                navigation.navigate("Search", { item });
+              }}
+            >
+              <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
+            </TouchableOpacity>
+          )}
+          keyExtractor={(item) => item}
+          contentContainerStyle={{ columnGap: SIZES.small }}
+          horizontal
+        />
       </View>
     </View>
   );

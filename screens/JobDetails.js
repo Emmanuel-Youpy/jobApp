@@ -12,6 +12,7 @@ import Company from "../components/jobdetails/company/Company";
 import Tabs from "../components/jobdetails/tabs/Tabs";
 import Specifics from "../components/jobdetails/specifics/Specifics";
 import About from "../components/jobdetails/about/About";
+import Footer from "../components/jobdetails/footer/Footer";
 
 
 const tabs = ["About", "Qualifications", "Responsibilities"]
@@ -69,6 +70,7 @@ const JobDetails = ({ route, navigation }) => {
           </View>
         )}
       </ScrollView>
+      <Footer url={data[0]?.job_google_link ?? "https://google.com"}/>
     </>
   );
 };
