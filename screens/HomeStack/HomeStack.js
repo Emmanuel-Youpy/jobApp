@@ -36,7 +36,16 @@ const HomeStack = () => {
        
 
 
-    <Stack.Screen name="Search" component={Search} options={{headerShown:false}}/>
+    <Stack.Screen name="Search" component={Search} options={{ headerStyle: { backgroundColor: COLORS.lightWhite },
+                    headerShadowVisible: false,
+                    headerLeft: () => (
+                        <ScreenHeaderBtn
+                            iconUrl={icons.left}
+                            dimension='60%'
+                            handlePress={() => navigation.goBack()}
+                        />
+                    ),
+                    headerTitle: "",}}/>
   </Stack.Navigator>
   )
 }

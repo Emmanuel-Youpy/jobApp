@@ -28,7 +28,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
           <TextInput
             style={styles.searchInput}
             value={searchTerm}
-            onChange={(text) => setSearchTerm(text)}
+            onChangeText={(text) => setSearchTerm(text)}
             placeholder="Search Jobs"
           />
         </View>
@@ -48,7 +48,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
               style={styles.tab(activeJobType, item)}
               onPress={() => {
                 setActiveJobType(item)
-                navigation.navigate("Search", { item });
+                navigation.navigate("Search", { item:item });
               }}
             >
               <Text style={styles.tabText(activeJobType, item)}>{item}</Text>

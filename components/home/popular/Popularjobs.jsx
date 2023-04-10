@@ -10,12 +10,16 @@ import { COLORS, SIZES } from "../../../constants";
 import PopularJobCard from "../../common/cards/popular/PopularJobCard"
 import styles from "./popularjobs.style";
 import useFetch from  '../../../hook/useFetch'
+import { useNavigation } from '@react-navigation/native';
+
 
 
 
 
 
 const Popularjobs = () => {
+  const navigation = useNavigation();
+
   useEffect(() => { Popularjobs}, [])
   
   const {isLoading, error, data} = useFetch('search', {
@@ -26,7 +30,9 @@ const Popularjobs = () => {
   const [selectedJob, setSelectedJob] = useState()
 
   const handleCardPress=(item)=>{
-
+    
+      navigation.navigate('JobDetails', {itemId:item?.job_id})
+    
   }
   return (
   

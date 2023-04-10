@@ -5,7 +5,7 @@ import {
   RefreshControl,
   ActivityIndicator,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import useFetch from "../hook/useFetch";
 import { COLORS, SIZES } from "../constants";
 import Company from "../components/jobdetails/company/Company";
@@ -17,14 +17,22 @@ import Footer from "../components/jobdetails/footer/Footer";
 
 const tabs = ["About", "Qualifications", "Responsibilities"]
 
-const JobDetails = ({ route, navigation }) => {
+const JobDetails = ({ route,  }) => {
   const { itemId } = route.params;
   const { data, error, isLoading, refetch } = useFetch("job-details", {
     job_id: itemId,
   });
 
   const [refreshing, setRefreshing] = useState(false);
-  const onRefresh = () => {};
+  const onRefresh = useCallback(
+    () => {
+      setRefreshing(true);
+      refetch();
+      setRefreshing(false);
+    },
+    [],
+  )
+  ;
   const [activeTab, setActiveTab] = useState(tabs[0])
 
   const displayTabContent =()=>{

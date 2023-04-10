@@ -26,7 +26,7 @@ const HomeScreen = ({ navigation }) => {
           setSearchTerm={setSearchTerm}
           handleClick={() => {
             if (searchTerm) {
-              navigation.navigate("Search", {searchTerm});
+              navigation.navigate("Search", { searchTerm });
             }
           }}
         />
