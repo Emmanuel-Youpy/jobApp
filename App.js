@@ -6,6 +6,7 @@ import MyTabs from './navigation/MyTabs';
 import { useFonts } from 'expo-font';
 import { useCallback } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
+import HomeStack from './screens/HomeStack/HomeStack';
 // import * as SplashScreen from 'expo-splash-screen';
 
 
@@ -34,9 +35,8 @@ export default function App() {
     
     <NavigationContainer onLayout={onLayoutRootView}>
       
-      <MyTabs/>
-      {/* <Text style={{ fontFamily: 'DMSans-Bold', fontSize: 27 }}>Yatra-One</Text> */}
-
+      {/* <MyTabs/> */}
+      <HomeStack/>
       <StatusBar style="auto" />
     
     </NavigationContainer>

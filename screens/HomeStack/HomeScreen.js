@@ -31,7 +31,7 @@ const HomeScreen = ({ navigation }) => {
           }}
         />
         <Popularjobs />
-        {isReady ? <Nearbyjobs /> : <Text>...</Text>}
+        {isReady ? <Nearbyjobs /> : <Text></Text>}
       </View>
     </ScrollView>
   );
